@@ -1,8 +1,9 @@
 <template>
-  <v-dialog v-model="dialogBox" fullscreen>
+  <v-dialog v-model="mostEpicDialog">
     <v-card>
-      <h1>hei</h1>
-      <p>data her</p>
+      <h1>Halloooo</h1>
+      <p>{{ cardData.title }}</p>
+
       <v-btn @click="closeDialog()">X</v-btn>
     </v-card>
   </v-dialog>
@@ -12,17 +13,17 @@
 export default {
   data() {
     return {
-      dialogBox: false,
+      mostEpicDialog: false,
       cardData: {},
     };
   },
   methods: {
     openDialog(dataFromParent) {
-      this.dialogBox = true;
+      this.mostEpicDialog = true;
       this.cardData = dataFromParent;
     },
     closeDialog() {
-      this.dialogBox = false;
+      this.mostEpicDialog = false;
     },
   },
 };
