@@ -2,10 +2,15 @@
   <div>
     <v-row>
       <v-col v-for="(card, index) in cards" :key="index" class="ma-2">
-        <v-card>
-          <v-btn @click="$refs.openBestModal.openDialog(card)">
-            {{ card.title }}
-          </v-btn>
+        <v-card class="mx-auto" max-width="200">
+          <v-card-title class="text-h8 grey lighten-2">
+            {{ card.title }}</v-card-title
+          >
+          <v-card-text>
+            <v-btn @click="$refs.openBestModal.openDialog(card)" class="ma-5">
+              more info
+            </v-btn>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
