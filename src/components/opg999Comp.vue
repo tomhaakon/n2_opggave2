@@ -2,12 +2,12 @@
   <v-row>
     <v-col v-for="(card, index) in cards" :key="index" class="ma-2">
       <v-card>
-        <p>{{ card.title }}</p>
-        <v-btn @click="$refs.openBestModal.openDialog(card)">Open</v-btn>
+        <p></p>
+        <v-btn @click="$refs.dialogBox.openDialog(card)">Open</v-btn>
       </v-card>
     </v-col>
   </v-row>
-  <v-row> <BestDialogEver></BestDialogEver></v-row>
+  <v-row><dialogBox></dialogBox></v-row>
 </template>
 
 <script>

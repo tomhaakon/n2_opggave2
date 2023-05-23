@@ -1,13 +1,13 @@
 <template>
-  <Opg9Comp />
+  <opg />
 </template>
 
 <script>
-import Opg9Comp from "@/components/opg9Comp.vue";
+import opg from "@/components/opg999Comp.vue";
 export default {
   name: "metadrit",
   components: {
-    Opg9Comp,
+    opg,
   },
 };
 </script>
