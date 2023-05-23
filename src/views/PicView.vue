@@ -1,16 +1,15 @@
 <template>
   <div>
-    <p>asda</p>
-    <EpicCard />
+    <Picture />
   </div>
 </template>
 <script>
-import EpicCard from "@/components/cards/myEpicCard.vue";
+import Picture from "@/components/picture/PicComp.vue";
 export default {
   name: "Card",
 
   components: {
-    EpicCard,
+    Picture,
   },
 };
 </script>
