@@ -1,24 +1,33 @@
 <template>
   <div>
     <h1 class="">Oppgave 11 - ResourcesView</h1>
-    <v-data-table :headers="headers" :items="fruits">
-      <template v-slot:item="row">
-        <tr>
-          <td class="text-center">{{ row.item.nr }}</td>
-          <td>{{ row.item.title }}</td>
-          <td>{{ row.item.link }}</td>
-          <td>
-            <v-btn
-              @click="$refs.openingAndSendingData.openDialog(row.item)"
-              class="float-right"
-              variant="plain"
-            >
-              <v-icon>mdi-information-variant</v-icon></v-btn
-            >
-          </td>
-        </tr>
-      </template>
-    </v-data-table>
+    <template>
+      <v-data-table
+        :headers="headers"
+        :items="fruits"
+        :single-expand="true"
+        item-key="title"
+        show-expand
+        class="elevation-1"
+      >
+        <template v-slot:item.controls="props">
+          <v-btn
+            elevation="0"
+            fab
+            x-small
+            @click="$refs.openingAndSendingData.openDialog(props.item)"
+          >
+            <v-icon>mdi-information-outline</v-icon>
+          </v-btn>
+        </template>
+        <!-- diveder
+ -->
+
+        <template v-slot:expanded-item="{ headers, item }">
+          <td :colspan="headers.length">{{ item.description }}</td>
+        </template>
+      </v-data-table>
+    </template>
     <myDialog ref="openingAndSendingData"></myDialog>
   </div>
 </template>
@@ -29,8 +38,13 @@ export default {
 
   data() {
     return {
+      methods: {
+        onButtonClick(item) {
+          console.log("click on " + item.no);
+        },
+      },
       expanded: [],
-      singleExpand: false,
+
       // overskrifter i tabellen
       headers: [
         {
@@ -58,6 +72,15 @@ export default {
           align: "right",
           text: "info",
           width: "5%",
+        },
+        {
+          text: "",
+          value: "data-table-expand",
+        },
+        {
+          text: "",
+          value: "controls",
+          sortable: false,
         },
       ],
       // innhold
