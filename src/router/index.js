@@ -12,6 +12,7 @@ import opg7 from "@/views/opg7View.vue";
 import opg8 from "@/views/opg8View.vue";
 import opg9 from "@/views/opg9View.vue";
 import opg999 from "@/views/opg999View.vue";
+import opg10 from "@/views/opg10_View.vue";
 // import Card from "@/components/cards/myEpicCard.vue";
 
 Vue.use(VueRouter);
@@ -21,6 +22,11 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/opg10",
+    name: "metajaj",
+    component: opg10,
   },
   {
     path: "/opg999",
