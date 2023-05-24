@@ -20,8 +20,7 @@
             <v-icon>mdi-information-outline</v-icon>
           </v-btn>
         </template>
-        <!-- diveder
- -->
+        <!-- diveder -->
 
         <template v-slot:expanded-item="{ headers, item }">
           <td :colspan="headers.length">{{ item.description }}</td>
