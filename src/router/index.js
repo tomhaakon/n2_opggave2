@@ -13,11 +13,23 @@ import opg8 from "@/views/opg8View.vue";
 import opg9 from "@/views/opg9View.vue";
 import opg999 from "@/views/opg999View.vue";
 import opg10 from "@/views/opg10_View.vue";
+import opg11Res from "@/views/ResourcesView.vue";
+import opg11Pro from "@/views/ProfileView.vue";
 // import Card from "@/components/cards/myEpicCard.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/resources",
+    name: "resources",
+    component: opg11Res,
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: opg11Pro,
+  },
   {
     path: "/",
     name: "home",
