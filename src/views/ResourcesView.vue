@@ -1,48 +1,66 @@
 <template>
   <div>
-    <h1 class="ma-5">Oppgave 11 - ResourcesView</h1>
+    <h1 class="">Oppgave 11 - ResourcesView</h1>
     <v-data-table :headers="headers" :items="fruits">
       <template v-slot:item="row">
-        <tr @click="onButtonClick(row.item)">
-          <td>{{ row.item.nr }}</td>
+        <tr>
+          <td class="text-center">{{ row.item.nr }}</td>
           <td>{{ row.item.title }}</td>
           <td>{{ row.item.link }}</td>
           <td>
             <v-btn
+              @click="$refs.openingAndSendingData.openDialog(row.item)"
+              class="float-right"
               variant="plain"
-              @click="onButtonClick(row.item)"
-              plain
-              x-small
             >
-              <v-icon dark>mdi-plus</v-icon>
-            </v-btn>
+              <v-icon>mdi-information-variant</v-icon></v-btn
+            >
           </td>
         </tr>
       </template>
     </v-data-table>
+    <myDialog ref="openingAndSendingData"></myDialog>
   </div>
 </template>
 <script>
+import myDialog from "@/components/opg12_DialogComp.vue";
 export default {
+  components: { myDialog },
+
   data() {
     return {
+      expanded: [],
+      singleExpand: false,
+      // overskrifter i tabellen
       headers: [
         {
-          text: "Index",
+          text: "#",
           value: "nr",
-          width: "80px",
+          width: "10%",
           align: "center",
         },
         {
           text: "Frukt",
           align: "start",
+          width: "50%",
           sortable: false,
           value: "title",
-          width: "200px",
         },
 
-        { text: "Link", value: "link", width: "200px" },
+        {
+          text: "Link",
+          value: "link",
+          align: "start",
+          width: "40%",
+        },
+
+        {
+          align: "right",
+          text: "info",
+          width: "5%",
+        },
       ],
+      // innhold
       fruits: [
         {
           nr: 1,
@@ -53,7 +71,7 @@ export default {
         {
           nr: 2,
           title: "Banan",
-          description: "Smaker ok",
+          description: "Smaker ok, går fra grønn til gul til brun",
           link: "banan.com",
         },
         {
@@ -76,11 +94,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    onButtonClick(item) {
-      console.log(item.title);
-    },
   },
 };
 </script>
